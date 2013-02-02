@@ -1,7 +1,7 @@
 {
     "name": "cpliakas/debug-search-server",
     "type": "library",
-    "description": "Provides an dummy search server to the Search Framework library by logging the various actions with Monolog.",
+    "description": "Provides a search service to the Search Framework library that only logs the various actions with Monolog.",
     "keywords": ["search", "search-framework", "monolog", "debug"],
     "homepage": "https://github.com/cpliakas/debug-search-server",
     "license": "LGPL-3.0",
@@ -17,8 +17,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Search\\Server\\Debug": "src/"
+            "Search\\Service\\Debug": "src/"
         }
     }
 }
-

@@ -6,7 +6,7 @@
  * @license http://www.gnu.org/licenses/lgpl-3.0.txt
  */
 
-namespace Search\Server\Debug;
+namespace Search\Service\Debug;
 
 use Monolog\Logger;
 use Search\Framework\Event\SearchCollectionEvent;
@@ -21,7 +21,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 /**
  * Integrates the Solarium library with the Search Framework.
  */
-class DebugSearchServer extends SearchServiceAbstract implements EventSubscriberInterface
+class DebugSearchService extends SearchServiceAbstract implements EventSubscriberInterface
 {
     /**
      * The Logger instance that logs the various events
@@ -31,7 +31,7 @@ class DebugSearchServer extends SearchServiceAbstract implements EventSubscriber
     protected $_log;
 
     /**
-     * Constructs a DebugSearchServer object.
+     * Constructs a DebugSearchService object.
      *
      * @param Logger $log
      *   The Logger instance that logs the various events.
@@ -70,7 +70,7 @@ class DebugSearchServer extends SearchServiceAbstract implements EventSubscriber
     }
 
     /**
-     * Implements Search::Server::SearchServiceAbstract::createIndex().
+     * Implements Search::Framework::SearchServiceAbstract::createIndex().
      */
     public function createIndex($name, array $options = array())
     {
@@ -115,7 +115,7 @@ class DebugSearchServer extends SearchServiceAbstract implements EventSubscriber
     }
 
     /**
-     * Implements Search::Server::SearchServiceAbstract::indexDocument().
+     * Implements Search::Framework::SearchServiceAbstract::indexDocument().
      */
     public function indexDocument(SearchCollectionAbstract $collection, SearchIndexDocument $document)
     {
@@ -144,7 +144,7 @@ class DebugSearchServer extends SearchServiceAbstract implements EventSubscriber
     }
 
     /**
-     * Implements Search::Server::SearchServiceAbstract::search().
+     * Implements Search::Framework::SearchServiceAbstract::search().
      *
      * @return array()
      */
@@ -155,7 +155,7 @@ class DebugSearchServer extends SearchServiceAbstract implements EventSubscriber
     }
 
     /**
-     * Implements Search::Server::SearchServiceAbstract::delete().
+     * Implements Search::Framework::SearchServiceAbstract::delete().
      */
     public function delete()
     {
