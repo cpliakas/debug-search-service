@@ -1,7 +1,7 @@
 <?php
 
 /**
- * A debugging search server for the Search Framework library.
+ * A search service for the Search Framework library that only logs events.
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.txt
  */
@@ -14,14 +14,14 @@ use Search\Framework\Event\SearchDocumentEvent;
 use Search\Framework\Event\SearchFieldEvent;
 use Search\Framework\SearchCollectionAbstract;
 use Search\Framework\SearchEvents;
-use Search\Framework\SearchServerAbstract;
+use Search\Framework\SearchServiceAbstract;
 use Search\Framework\SearchIndexDocument;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
  * Integrates the Solarium library with the Search Framework.
  */
-class DebugSearchServer extends SearchServerAbstract implements EventSubscriberInterface
+class DebugSearchServer extends SearchServiceAbstract implements EventSubscriberInterface
 {
     /**
      * The Logger instance that logs the various events
@@ -70,7 +70,7 @@ class DebugSearchServer extends SearchServerAbstract implements EventSubscriberI
     }
 
     /**
-     * Implements Search::Server::SearchServerAbstract::createIndex().
+     * Implements Search::Server::SearchServiceAbstract::createIndex().
      */
     public function createIndex($name, array $options = array())
     {
@@ -115,7 +115,7 @@ class DebugSearchServer extends SearchServerAbstract implements EventSubscriberI
     }
 
     /**
-     * Implements Search::Server::SearchServerAbstract::indexDocument().
+     * Implements Search::Server::SearchServiceAbstract::indexDocument().
      */
     public function indexDocument(SearchCollectionAbstract $collection, SearchIndexDocument $document)
     {
@@ -144,7 +144,7 @@ class DebugSearchServer extends SearchServerAbstract implements EventSubscriberI
     }
 
     /**
-     * Implements Search::Server::SearchServerAbstract::search().
+     * Implements Search::Server::SearchServiceAbstract::search().
      *
      * @return array()
      */
@@ -155,7 +155,7 @@ class DebugSearchServer extends SearchServerAbstract implements EventSubscriberI
     }
 
     /**
-     * Implements Search::Server::SearchServerAbstract::delete().
+     * Implements Search::Server::SearchServiceAbstract::delete().
      */
     public function delete()
     {
